@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+
+  app:
+    container_name: php-amqplib-usage.app
+    build: docker/php
+    volumes:
+      - .:/var/www
+    ports:
+      - 9000
+    environment:
+      - DOCKER_IP=${DOCKER_IP}
+  rabbitmq:
+    container_name: php-amqplib-usage.rabbitmq
+    image: rabbitmq
+    ports:
+        - 5672:5672
